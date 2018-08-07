@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjMVC5.Infra.Data", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjMVC5.UI.Sistema", "src\ProjMVC5.UI.Sistema\ProjMVC5.UI.Sistema.csproj", "{235ED7A2-48A5-423D-8964-97954EF35B74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjMVC5.Application", "ProjMVC5.Application\ProjMVC5.Application.csproj", "{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{235ED7A2-48A5-423D-8964-97954EF35B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{235ED7A2-48A5-423D-8964-97954EF35B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{235ED7A2-48A5-423D-8964-97954EF35B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{FCDAF2DD-9A69-44E9-86FA-8EF75204DFFC} = {088D3C00-41DB-45FD-8359-B125C2BA4FAC}
 		{1D2DD10A-C36C-4DD4-8A0C-08941F4E65FB} = {BD29C47F-CCC8-4C30-8435-3125ACDA64F7}
 		{235ED7A2-48A5-423D-8964-97954EF35B74} = {67BF2AC2-3817-416D-A5CC-8A4F249B8C86}
+		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0} = {4A3F9479-94D3-4931-BAF2-A0F5271D7EFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFEBE39F-29D4-4443-95C8-04E8C58C13BB}
