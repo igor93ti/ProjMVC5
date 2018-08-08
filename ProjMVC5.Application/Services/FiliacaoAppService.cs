@@ -1,4 +1,6 @@
-﻿using ProjMVC5.Application.Interfaces;
+﻿using AutoMapper;
+using ProjMVC5.Application.Interfaces;
+using ProjMVC5.Domain.Entities;
 using ProjMVC5.Domain.Interfaces.Repository;
 using ProjMVC5.Infra.Data.Repository;
 using System;
@@ -17,43 +19,56 @@ namespace ProjMVC5.Application.Services
         {
             _filiacaoRepository = new FiliacaoRepository();
         }
+
         public ClienteEnderecoViewModel Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel)
         {
-            //faltando mapear com automapper
-          //  return _filiacaoRepository.Adicionar(clienteEnderecoViewModel);
-        }
+            var cliente = Mapper.Map<Cliente>(clienteEnderecoViewModel);
+            var endereco = Mapper.Map<Endereco>(clienteEnderecoViewModel);
 
-        public ClienteViewModel Atualizar(ClienteViewModel clienteViewModel)
-        {
-        }
+            cliente.Enderecos.Add(endereco);
 
-        public void Dispose()
-        {
-        }
+            _filiacaoRepository.Adicionar(cliente);
 
-        public ClienteViewModel ObterPorCpf(string cpf)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ClienteViewModel ObterPorEmail(string email)
-        {
-            throw new NotImplementedException();
+            return Mapper.Map<ClienteEnderecoViewModel>(cliente);
         }
 
         public ClienteViewModel ObterPorId(Guid id)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<ClienteViewModel>(_filiacaoRepository.ObterPorId(id));
         }
-
+        
         public IEnumerable<ClienteViewModel> ObterTodos()
         {
-            throw new NotImplementedException();
+            return Mapper.Map<IEnumerable<ClienteViewModel>>(_filiacaoRepository.ObterTodos());
         }
 
+        public ClienteViewModel Atualizar(ClienteViewModel clienteViewModel)
+        {
+            var cliente = Mapper.Map<Cliente>(clienteViewModel);
+            var clienteReturn = _filiacaoRepository.Atualizar(cliente);
+
+            return Mapper.Map<ClienteViewModel>(clienteReturn);
+        }
+        
+        public ClienteViewModel ObterPorCpf(string cpf)
+        {
+            return Mapper.Map<ClienteViewModel>(_filiacaoRepository.ObterPorCpf(cpf));
+        }
+
+        public ClienteViewModel ObterPorEmail(string email)
+        {
+            return Mapper.Map<ClienteViewModel>(_filiacaoRepository.ObterPorEmail(email));
+        }
         public void Remover(Guid id)
         {
-            throw new NotImplementedException();
+            _filiacaoRepository.Remover(id);
         }
+
+        public void Dispose()
+        {
+            _filiacaoRepository.Dispose();
+            GC.SuppressFinalize(this);
+        }
+        
     }
 }
