@@ -14,6 +14,12 @@ namespace ProjMVC5.Infra.Data.Repository
         protected ProjMVC5Context Db;
         protected DbSet<TEntity> DbSet;
 
+        public Repository()
+        {
+            Db = new ProjMVC5Context();
+            DbSet = Db.Set<TEntity>();
+        }
+
         public virtual TEntity Adicionar(TEntity obj)
         {
             var objAdd = DbSet.Add(obj);

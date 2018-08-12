@@ -29,7 +29,6 @@ namespace ProjMVC5.UI.Sistema.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<ProjMVC5.Application.ClienteViewModel> ClienteViewModels { get; set; }
+        
     }
 }

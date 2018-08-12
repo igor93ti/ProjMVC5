@@ -10,7 +10,7 @@ namespace ProjMVC5.Application
 {
     public class ClienteEnderecoViewModel
     {
-        public ClienteEnderecoViewModel ClienteViewModel { get; set; }
+        public ClienteViewModel ClienteViewModel { get; set; }
         public EnderecoViewModel EnderecoViewModel { get; set; }
     }
 }
