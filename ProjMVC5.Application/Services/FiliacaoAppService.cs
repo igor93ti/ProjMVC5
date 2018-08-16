@@ -5,9 +5,6 @@ using ProjMVC5.Domain.Interfaces.Repository;
 using ProjMVC5.Infra.Data.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjMVC5.Application.Services
 {
@@ -22,8 +19,8 @@ namespace ProjMVC5.Application.Services
 
         public ClienteEnderecoViewModel Adicionar(ClienteEnderecoViewModel clienteEnderecoViewModel)
         {
-            var cliente = Mapper.Map<Cliente>(clienteEnderecoViewModel);
-            var endereco = Mapper.Map<Endereco>(clienteEnderecoViewModel);
+            var cliente = Mapper.Map<Cliente>(clienteEnderecoViewModel.ClienteViewModel);
+            var endereco = Mapper.Map<Endereco>(clienteEnderecoViewModel.EnderecoViewModel);
 
             cliente.Enderecos.Add(endereco);
 
@@ -36,7 +33,7 @@ namespace ProjMVC5.Application.Services
         {
             return Mapper.Map<ClienteViewModel>(_filiacaoRepository.ObterPorId(id));
         }
-        
+
         public IEnumerable<ClienteViewModel> ObterTodos()
         {
             return Mapper.Map<IEnumerable<ClienteViewModel>>(_filiacaoRepository.ObterTodos());
@@ -49,7 +46,7 @@ namespace ProjMVC5.Application.Services
 
             return Mapper.Map<ClienteViewModel>(clienteReturn);
         }
-        
+
         public ClienteViewModel ObterPorCpf(string cpf)
         {
             return Mapper.Map<ClienteViewModel>(_filiacaoRepository.ObterPorCpf(cpf));
@@ -59,6 +56,7 @@ namespace ProjMVC5.Application.Services
         {
             return Mapper.Map<ClienteViewModel>(_filiacaoRepository.ObterPorEmail(email));
         }
+
         public void Remover(Guid id)
         {
             _filiacaoRepository.Remover(id);
@@ -69,6 +67,5 @@ namespace ProjMVC5.Application.Services
             _filiacaoRepository.Dispose();
             GC.SuppressFinalize(this);
         }
-        
     }
 }

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjMVC5.Infra.Data.Context
 {
@@ -13,11 +10,11 @@ namespace ProjMVC5.Infra.Data.Context
 
     public class ProjMVC5Context : DbContext
     {
-        public ProjMVC5Context() 
+        public ProjMVC5Context()
             : base("DefaultConnection") //busca a conexão default definida no web.config da aplicação
         {
-
         }
+
         public DbSet<Cliente> Clientes { get; set; }
 
         public DbSet<Endereco> Enderecos { get; set; }
@@ -31,12 +28,12 @@ namespace ProjMVC5.Infra.Data.Context
             //Pega a propriedade que tem o "Nome Da Classe" + "Id" e configura como sendo chave primária
             modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id")
                 .Configure(p => p.IsKey());
-            
+
             // Toda prop string, se não for definido previamente, vai ser por default varchar
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasColumnType("varchar"));
 
-            // Toda prop string, se não for definido previamente, vai ter o tamanho máximo de 100 
+            // Toda prop string, se não for definido previamente, vai ter o tamanho máximo de 100
             modelBuilder.Properties<string>()
                .Configure(p => p.HasMaxLength(100));
 
@@ -44,6 +41,24 @@ namespace ProjMVC5.Infra.Data.Context
             modelBuilder.Configurations.Add(new EnderecoConfig());
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override int SaveChanges()
+        {
+            foreach (var entry in ChangeTracker.Entries()
+                .Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("DataCadastro").IsModified = false;
+                }
+            }
+            return base.SaveChanges();
         }
     }
 }
