@@ -36,6 +36,8 @@ namespace ProjMVC5.Infra.Data.EntityConfig
             HasRequired(e => e.Cliente)
                 .WithMany(c => c.Enderecos)
                 .HasForeignKey(e => e.ClienteId);
+
+            ToTable("Enderecos");
         }
     }
 }

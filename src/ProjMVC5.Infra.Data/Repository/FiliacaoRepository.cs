@@ -49,7 +49,7 @@ namespace ProjMVC5.Infra.Data.Repository
             var sql = @"SELECT * FROM Clientes c
                         LEFT JOIN Enderecos e
                         ON c.ClienteId = e.ClienteId
-                        WHERE c.ClienteId = sid";
+                        WHERE c.ClienteId = @sid";
 
             var cliente = cn.Query<Cliente, Endereco, Cliente>(sql, (c, e) =>
             {
