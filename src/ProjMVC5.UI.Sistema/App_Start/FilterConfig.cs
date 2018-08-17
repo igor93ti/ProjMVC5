@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using ProjMVC5.Infra.CrossCutting.MvcFilters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ProjMVC5.UI.Sistema
@@ -8,6 +9,7 @@ namespace ProjMVC5.UI.Sistema
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new GlobalErrorHandler());
         }
     }
 }

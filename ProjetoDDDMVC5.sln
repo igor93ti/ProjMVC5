@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjMVC5.UI.Sistema", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjMVC5.Application", "ProjMVC5.Application\ProjMVC5.Application.csproj", "{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjMVC5.Infra.CrossCutting.MvcFilters", "ProjMVC5.Infra.CrossCutting.MvcFilters\ProjMVC5.Infra.CrossCutting.MvcFilters.csproj", "{7E70B38B-499D-442B-9A9B-B91FC4C60981}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E70B38B-499D-442B-9A9B-B91FC4C60981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E70B38B-499D-442B-9A9B-B91FC4C60981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E70B38B-499D-442B-9A9B-B91FC4C60981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E70B38B-499D-442B-9A9B-B91FC4C60981}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{1D2DD10A-C36C-4DD4-8A0C-08941F4E65FB} = {BD29C47F-CCC8-4C30-8435-3125ACDA64F7}
 		{235ED7A2-48A5-423D-8964-97954EF35B74} = {67BF2AC2-3817-416D-A5CC-8A4F249B8C86}
 		{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0} = {4A3F9479-94D3-4931-BAF2-A0F5271D7EFE}
+		{7E70B38B-499D-442B-9A9B-B91FC4C60981} = {EFAC1FA5-6CAC-41EB-BF1F-7CBF29D0D3FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFEBE39F-29D4-4443-95C8-04E8C58C13BB}

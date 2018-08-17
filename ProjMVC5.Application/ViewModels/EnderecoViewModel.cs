@@ -11,7 +11,7 @@ namespace ProjMVC5.Application
     {
         public EnderecoViewModel()
         {
-            EnderecoId = new Guid();
+            EnderecoId = Guid.NewGuid();
         }
 
         [Key]
@@ -49,6 +49,7 @@ namespace ProjMVC5.Application
 
         [ScaffoldColumn(false)]
         public Guid ClienteId { get; set; }
+        
 
 
 

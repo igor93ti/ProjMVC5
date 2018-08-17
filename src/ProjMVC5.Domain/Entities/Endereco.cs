@@ -7,7 +7,7 @@
     {
         public Endereco()
         {
-            this.EnderecoId = Guid.NewGuid();
+            EnderecoId = Guid.NewGuid();
         }
 
         public Guid EnderecoId { get; set; }
@@ -24,7 +24,6 @@
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public Guid ClienteId { get; set; }
-
         public virtual Cliente Cliente { get; set; }
     }
 }

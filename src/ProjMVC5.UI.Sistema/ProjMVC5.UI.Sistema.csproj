@@ -279,11 +279,12 @@
     <Content Include="Views\Filiacao\Details.cshtml" />
     <Content Include="Views\Filiacao\Edit.cshtml" />
     <Content Include="Views\Filiacao\Index.cshtml" />
-    <Content Include="Views\Error\AccessDenied.cshtml" />
-    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Shared\AccessDenied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -302,6 +303,10 @@
     <ProjectReference Include="..\..\ProjMVC5.Application\ProjMVC5.Application.csproj">
       <Project>{616ED2E6-23DA-4C01-A2C9-32CB7E6BC5F0}</Project>
       <Name>ProjMVC5.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ProjMVC5.Infra.CrossCutting.MvcFilters\ProjMVC5.Infra.CrossCutting.MvcFilters.csproj">
+      <Project>{7E70B38B-499D-442B-9A9B-B91FC4C60981}</Project>
+      <Name>ProjMVC5.Infra.CrossCutting.MvcFilters</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
