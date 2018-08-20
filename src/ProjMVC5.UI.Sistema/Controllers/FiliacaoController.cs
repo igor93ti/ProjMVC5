@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using ProjMVC5.Application;
+﻿using ProjMVC5.Application;
 using ProjMVC5.Application.Interfaces;
 using ProjMVC5.Application.Services;
-using ProjMVC5.UI.Sistema.Models;
+using ProjMVC5.Infra.CrossCutting.MvcFilters;
+using System;
+using System.Net;
+using System.Web.Mvc;
 
 namespace ProjMVC5.UI.Sistema.Controllers
 {
+    [Authorize]
     public class FiliacaoController : Controller
     {
+
+        //ModuloCliente - CL,CI,CE,CD,CX
+
         private readonly IFiliacaoAppService _filiacaoAppService;
 
         public FiliacaoController()
@@ -22,6 +21,7 @@ namespace ProjMVC5.UI.Sistema.Controllers
             _filiacaoAppService = new FiliacaoAppService();
         }
 
+        [ClaimsAuthorize("ModuloCliente", "aaa")]
         public ActionResult Index()
         {
             return View(_filiacaoAppService.ObterTodos());
