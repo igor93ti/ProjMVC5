@@ -21,12 +21,13 @@ namespace ProjMVC5.UI.Sistema.Controllers
             _filiacaoAppService = new FiliacaoAppService();
         }
 
-        [ClaimsAuthorize("ModuloCliente", "aaa")]
+        [ClaimsAuthorize("ModuloCliente", "CL")]
         public ActionResult Index()
         {
             return View(_filiacaoAppService.ObterTodos());
         }
-        
+
+        [ClaimsAuthorize("ModuloCliente", "CD")]
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -41,12 +42,14 @@ namespace ProjMVC5.UI.Sistema.Controllers
             }
             return View(clienteViewModel);
         }
-        
+
+        [ClaimsAuthorize("ModuloCliente", "CI")]
         public ActionResult Create()
         {
             return View();
         }
-        
+
+        [ClaimsAuthorize("ModuloCliente", "CI")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ClienteEnderecoViewModel clienteEnderecoViewModel)
@@ -59,7 +62,8 @@ namespace ProjMVC5.UI.Sistema.Controllers
 
             return View(clienteEnderecoViewModel);
         }
-        
+
+        [ClaimsAuthorize("ModuloCliente", "CE")]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -75,7 +79,8 @@ namespace ProjMVC5.UI.Sistema.Controllers
             }
             return View(clienteViewModel);
         }
-        
+
+        [ClaimsAuthorize("ModuloCliente", "CE")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(ClienteViewModel clienteViewModel)
@@ -87,7 +92,8 @@ namespace ProjMVC5.UI.Sistema.Controllers
             }
             return View(clienteViewModel);
         }
-        
+
+        [ClaimsAuthorize("ModuloCliente", "CX")]
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -102,7 +108,8 @@ namespace ProjMVC5.UI.Sistema.Controllers
             }
             return View(clienteViewModel);
         }
-        
+
+        [ClaimsAuthorize("ModuloCliente", "CX")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
